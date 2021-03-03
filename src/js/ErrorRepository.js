@@ -4,7 +4,10 @@ export default class ErrorRepository {
   }
 
   translate(code) {
-    const errString = this.errorMap.get(code);
-    return errString ? errString : `Unknown error`;
+    let errString = this.errorMap.get(code);
+    if (!errString) {
+      errString = `Unknown error`;
+    }
+    return errString;
   }
 }
